@@ -1,0 +1,8 @@
+.clj-kondo/.cache/
+/.cpcache/
+*.jar
+*.class
+target/
+*.deb
+.clj-kondo/
+.lsp/
