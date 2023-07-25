@@ -2,6 +2,7 @@
   (:refer-clojure :exclude [key type])
   (:require
     [clojure.string :as str]
+    [clojure.java.io :as io]
     [io.github.humbleui.font :as font]
     [io.github.humbleui.paint :as paint]
     [io.github.humbleui.typeface :as typeface]
@@ -16,13 +17,13 @@
 
 ;; https://github.com/AllValley/WordleDictionary
 (def dictionary
-  (->> (slurp "resources/wordle_dictionary.txt")
+  (->> (slurp (io/resource "resources/wordle_dictionary.txt"))
     (str/split-lines)
     (map str/upper-case)
     (set)))
 
 (def solutions
-  (->> (slurp "resources/wordle_solutions.txt")
+  (->> (slurp (io/resource "resources/wordle_solutions.txt"))
     (str/split-lines)
     (mapv str/upper-case)))
 

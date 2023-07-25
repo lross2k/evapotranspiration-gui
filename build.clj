@@ -17,7 +17,7 @@
   (clean nil)
 
   (b/copy-dir {:src-dirs   ["resources"]         ; copy resources
-               :target-dir (string build-folder "/exmaples/resources")})
+               :target-dir (str jar-content "/resources")})
 
   (b/compile-clj {:basis     basis               ; compile clojure code
                   :src-dirs  ["src"]

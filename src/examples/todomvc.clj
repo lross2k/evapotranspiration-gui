@@ -1,6 +1,7 @@
 (ns examples.todomvc
   (:require
     [clojure.math :as math]
+    [clojure.java.io :as io]
     [clojure.string :as str]
     [examples.state :as state]
     [io.github.humbleui.canvas :as canvas]
@@ -148,8 +149,8 @@
             (ui/height 40
               (ui/dynamic _ [state (completed-all?)]
                 (if state
-                  (ui/svg "resources/images/todomvc/uncheck-all.svg")
-                  (ui/svg "resources/images/todomvc/check-all.svg"))))))))))
+                  (ui/svg (io/resource "resources/images/todomvc/uncheck-all.svg"))
+                  (ui/svg (io/resource "resources/images/todomvc/check-all.svg")))))))))))
 
 (def *new-todo
   (cursor/cursor *state :new-todo))
@@ -179,8 +180,8 @@
         (ui/height 40
           (ui/dynamic _ [state @*state]
             (if state
-              (ui/svg "resources/images/todomvc/checked.svg")
-              (ui/svg "resources/images/todomvc/unchecked.svg"))))))))
+              (ui/svg (io/resource "resources/images/todomvc/checked.svg"))
+              (ui/svg (io/resource "resources/images/todomvc/unchecked.svg")))))))))
 
 (defn todo-delete [id]
   (ui/padding 10
@@ -196,8 +197,8 @@
               (ui/height 40
                 (ui/dynamic ctx [{:hui/keys [hovered?]} ctx]
                   (if hovered?
-                    (ui/svg "resources/images/todomvc/delete-hovered.svg")
-                    (ui/svg "resources/images/todomvc/delete.svg")))))))
+                    (ui/svg (io/resource "resources/images/todomvc/delete-hovered.svg"))
+                    (ui/svg (io/resource "resources/images/todomvc/delete.svg"))))))))
         (ui/gap 40 40)))))
 
 (defn todo [id]
