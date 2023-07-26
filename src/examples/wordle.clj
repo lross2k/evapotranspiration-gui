@@ -17,15 +17,26 @@
 
 ;; https://github.com/AllValley/WordleDictionary
 (def dictionary
-  (->> (slurp (io/resource "resources/wordle_dictionary.txt"))
-    (str/split-lines)
-    (map str/upper-case)
-    (set)))
+  (if (io/resource "resources/wordle_dictionary.txt")
+    (->> (slurp (io/resource "resources/wordle_dictionary.txt"))
+      (str/split-lines)
+      (map str/upper-case)
+      (set))
+    (->> (slurp "resources/wordle_dictionary.txt")
+      (str/split-lines)
+      (map str/upper-case)
+      (set))
+  ))
 
 (def solutions
-  (->> (slurp (io/resource "resources/wordle_solutions.txt"))
-    (str/split-lines)
-    (mapv str/upper-case)))
+  (if (io/resource "resources/wordle_solutions.txt")
+    (->> (slurp (io/resource "resources/wordle_solutions.txt"))
+      (str/split-lines)
+      (mapv str/upper-case))
+    (->> (slurp "resources/wordle_solutions.txt")
+      (str/split-lines)
+      (mapv str/upper-case))
+  ))
 
 (defn empty-state []
   {:word    (rand-nth solutions)
