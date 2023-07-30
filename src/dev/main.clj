@@ -1,6 +1,7 @@
 (ns dev.main
   (:require
    [clojure.core.server :as server]
+   [clojure.java.io :as io]
    [examples.ross]
    [examples.align]
    [examples.backdrop]
@@ -107,7 +108,10 @@
       (reset! state/*window 
         (ui/window
           {:title    "Humble Test"
-           :mac-icon "resources/images/icon.icns"
+           :mac-icon (if (io/resource "resources/images/icon.icns")
+                       (io/resource "resources/images/icon.icns")
+                       "resources/images/icon.icns"
+                     )
            :screen   (:id screen)
            :width    600
            :height   600

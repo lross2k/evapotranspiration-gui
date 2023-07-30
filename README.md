@@ -13,3 +13,4 @@ To build a JAR, you can run `./script/build.sh`.
 
 A lot of this code was copied and then modified from the HumbleUI codebase
 itself, as well as humble-starter as a base.
+
