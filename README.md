@@ -9,6 +9,11 @@ To simply run the app, execute `./script/run.sh`.
 
 To build a JAR, you can run `./script/build.sh`.
 
+## Platform support
+
+Thanks to the efforts of the HumbleUI team, this app can run on Windows, macOS and \*nix systems
+with X and Wayland windowing systems (as long as a JRE 15 or greater is installed)
+
 ## Credit
 
 A lot of this code was copied and then modified from the HumbleUI codebase

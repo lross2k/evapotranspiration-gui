@@ -109,7 +109,7 @@
         (ui/window
           {:title    "Humble Test"
            :mac-icon (if (io/resource "resources/images/icon.icns")
-                       (io/resource "resources/images/icon.icns")
+                       (slurp (io/resource "resources/images/icon.icns"))
                        "resources/images/icon.icns"
                      )
            :screen   (:id screen)
