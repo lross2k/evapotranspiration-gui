@@ -53,6 +53,12 @@
       (ui/text-field value)
       (ui/label unit)]]))
 
+(def solar {:name "Constante Solar", :value *answer, :unit "MJ/m²"})
+
+(defn RenderParams [params]
+  (for [param params] (simple (param :name) (param :value) (param :unit)))
+)
+
 (defn parameter [name filter color value unit]
     (ui/clip-rrect 20
       (ui/backdrop filter
@@ -79,7 +85,8 @@
          :hui.text-field/padding-left   5
          :hui.text-field/padding-right  5}
       (ui/column
-        (parameter "Altura" (blur 20) 0x40CC3333 *component "msnm")
+        ;(parameter "Altura" (blur 20) 0x40CC3333 *component "msnm")
         (simple "Altura" *component "msnm")
+        (first (RenderParams [solar]))
       )
      ))))
