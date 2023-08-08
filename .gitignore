@@ -6,3 +6,7 @@ target/
 *.deb
 .clj-kondo/
 .lsp/
+# Excel files
+*.xlsx
+# PDF files
+*.pdf

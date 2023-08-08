@@ -3,6 +3,7 @@
    [clojure.core.server :as server]
    [clojure.java.io :as io]
    [examples.ross]
+   [examples.daily]
    [examples.align]
    [examples.backdrop]
    [examples.calculator]
@@ -45,6 +46,7 @@
 (def examples
   (sorted-map
     "ARoss" examples.ross/ui
+    "Diario" examples.daily/ui
     "Align" examples.align/ui
     "Backdrop" examples.backdrop/ui
     "Calculator" examples.calculator/ui
