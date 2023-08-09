@@ -11,9 +11,9 @@
 
 (defn parameter [name value unit]
   (ui/row 
-    [:stretch 1 (ui/rect (paint/fill 0xFFB2D7FE) (ui/center (ui/padding 10 10 (ui/width 100 (ui/label name)))))]
-    [:stretch 1 (ui/rect (paint/fill 0xFFB2D7FE) (ui/center (ui/padding 10 10 (ui/width 100 (ui/text-field value)))))]
-    [:stretch 1 (ui/rect (paint/fill 0xFFB2D7FE) (ui/center (ui/padding 10 10 (ui/width 100 (ui/label unit)))))]))
+    [:stretch 1 (ui/rect (paint/fill 0xFFB2D7FE) (ui/center (ui/padding 10 10 (ui/width 125 (ui/label name)))))]
+    [:stretch 1 (ui/rect (paint/fill 0xFFB2D7FE) (ui/center (ui/padding 10 10 (ui/width 125 (ui/text-field value)))))]
+    [:stretch 1 (ui/rect (paint/fill 0xFFB2D7FE) (ui/center (ui/padding 10 10 (ui/width 125 (ui/label unit)))))]))
 
 (defn RenderParams [params]
   (for [param params] (parameter (param :name) (param :value) (param :unit)))
@@ -24,8 +24,24 @@
 (def height {:name "Altura", :value *valHeight, :unit "msnm"})
 
 (def *valSolar
-  (atom {:text "42"}))
+  (atom {:text "0,082"}))
 (def solar {:name "Constante Solar", :value *valSolar, :unit "MJ/m²"})
+
+(def *valAlbedo
+  (atom {:text "0,23"}))
+(def albedo {:name "Albedo", :value *valAlbedo, :unit "-"})
+
+(def *valAtm
+  (atom {:text "78,54"}))
+(def atm {:name "Presión Atmosférica", :value *valAtm, :unit "kPa"})
+
+(def *valMeassureDist
+  (atom {:text "6,50"}))
+(def meassureDist {:name "Altura de medición", :value *valMeassureDist, :unit "m"})
+
+;(def *val
+;  (atom {:text ""}))
+;(def solar {:name "", :value *val, :unit ""})
 
 (def ui
   (ui/center
@@ -36,4 +52,4 @@
          :hui.text-field/padding-left   5
          :hui.text-field/padding-right  5}
       (ui/column
-        (RenderParams [height solar]))))))
+        (RenderParams [height albedo solar atm meassureDist]))))))

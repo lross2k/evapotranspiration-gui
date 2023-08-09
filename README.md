@@ -3,6 +3,10 @@
 A work in progress, using [HumbleUI](https://github.com/HumbleUI/HumbleUI) and Clojure 
 based on the works of [lilactown/humble-starter](https://github.com/lilactown/humble-starter).
 
+<div align="center">
+    <img src=img/progress.png style="border-radius: 8px; width: 40%">
+</div>
+
 ## Development
 
 To simply run the app, execute `./script/run.sh`.
