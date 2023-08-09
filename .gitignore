@@ -1,12 +1,20 @@
-.clj-kondo/.cache/
-/.cpcache/
+# Clojure has too many config folders
+.clj-kondo/
+.calva/
+.cpcache/
+.lsp/
+# Just in case for IDEs
+.vscode/
+.vs/
+*.swp
+# Java binary files
 *.jar
 *.class
+# Target files
 target/
 *.deb
-.clj-kondo/
-.lsp/
-# Excel files
+*.exe
+# Spreadsheet files
 *.xlsx
 # PDF files
 *.pdf
