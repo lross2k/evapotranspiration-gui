@@ -39,6 +39,18 @@
   (atom {:text "6,50"}))
 (def meassureDist {:name "Altura de medición", :value *valMeassureDist, :unit "m"})
 
+(def *valCapCaloric
+  (atom {:text "2,10"}))
+(def capCaloric {:name "Capacidad calorífica", :value *valCapCaloric, :unit "MJ m-3 °C-1"})
+
+(def *valSoilDepth
+  (atom {:text "0,10"}))
+(def soilDepth {:name "Δz profundida suelo", :value *valSoilDepth, :unit "m"})
+
+(def *valInitialDay
+  (atom {:text "0"}))
+(def initDay {:name "Día inicial", :value *valInitialDay, :unit "-"})
+
 ;(def *val
 ;  (atom {:text ""}))
 ;(def solar {:name "", :value *val, :unit ""})
@@ -52,4 +64,7 @@
          :hui.text-field/padding-left   5
          :hui.text-field/padding-right  5}
       (ui/column
-        (RenderParams [height albedo solar atm meassureDist]))))))
+        (ui/label "Estación")
+        (RenderParams [height albedo solar atm meassureDist])
+        (ui/label "Localización")
+        (RenderParams [capCaloric soilDepth initDay]))))))

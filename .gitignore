@@ -18,3 +18,5 @@ target/
 *.xlsx
 # PDF files
 *.pdf
+# Crash files
+*.log
