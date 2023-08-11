@@ -1,6 +1,5 @@
 {:paths ["src"]
- ;:deps {io.github.humbleui/humbleui {:git/sha "c3eb2ec04fcccb40cc4a3da44ccda0ef3ccacc01"}
- :deps {io.github.humbleui/humbleui {:git/sha "57ed87beb0f53db002e52dc4df6030616f0ee409"}
+ :deps {io.github.humbleui/humbleui {:git/sha "472bb1e15275af7d32c4057c799f304ef9b6a6fe"}
         org.clojure/clojure         {:mvn/version "1.11.1"}
         nrepl/nrepl                 {:mvn/version "1.0.0"}
         org.clojure/tools.namespace {:mvn/version "1.4.4"}
