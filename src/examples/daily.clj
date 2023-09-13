@@ -3,6 +3,7 @@
     [clojure.string :as str]
     [io.github.humbleui.core :as core]
     [io.github.humbleui.paint :as paint]
+    [examples.calculator :as calculetor]
     [io.github.humbleui.typeface :as typeface]
     [io.github.humbleui.font :as font]
     [io.github.humbleui.ui :as ui])
@@ -18,6 +19,11 @@
 (defn RenderParams [params]
   (for [param params] (parameter (param :name) (param :value) (param :unit)))
 )
+
+(def *valCalc
+  (atom {:text (calculetor/get_state)}))
+(println *valCalc)
+(def calcTest {:name "Prueba", :value *valCalc, :unit "csm"})
 
 (def *valHeight
   (atom {:text "2129"}))
@@ -51,9 +57,35 @@
   (atom {:text "0"}))
 (def initDay {:name "Día inicial", :value *valInitialDay, :unit "-"})
 
-;(def *val
-;  (atom {:text ""}))
-;(def solar {:name "", :value *val, :unit ""})
+(def color-digit 0xFF797979)
+
+(defn print-state []
+  (println (calculetor/get_state)))
+
+(defn sync-value []
+  (swap! *valCalc assoc :text (calculetor/get_state)))
+
+(defn button [text color]
+  (ui/clickable
+    {:on-click (fn [_] (print-state))}
+    (ui/dynamic ctx [{:keys [hui/active? font-btn]} ctx]
+      (let [color' (if active?
+                     (bit-or 0x80000000 (bit-and 0xFFFFFF color))
+                     color)]
+        (ui/rect (paint/fill color')
+          (ui/center
+            (ui/label {:font font-btn :features ["tnum"]} text)))))))
+
+(defn sync-button [text color]
+  (ui/clickable
+    {:on-click (fn [_] (sync-value))}
+    (ui/dynamic ctx [{:keys [hui/active? font-btn]} ctx]
+      (let [color' (if active?
+                     (bit-or 0x80000000 (bit-and 0xFFFFFF color))
+                     color)]
+        (ui/rect (paint/fill color')
+          (ui/center
+            (ui/label {:font font-btn :features ["tnum"]} text)))))))
 
 (def ui
   (ui/center
@@ -67,4 +99,8 @@
         (ui/label "Estación")
         (RenderParams [height albedo solar atm meassureDist])
         (ui/label "Localización")
-        (RenderParams [capCaloric soilDepth initDay]))))))
+        (RenderParams [capCaloric soilDepth initDay])
+        (ui/label "Test")
+        (button "Pruebame" color-digit)
+        (sync-button "Sync" color-digit)
+        (RenderParams [calcTest]))))))

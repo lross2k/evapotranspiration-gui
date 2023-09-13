@@ -47,27 +47,28 @@
   (sorted-map
     "ARoss" examples.ross/ui
     "Diario" examples.daily/ui
-    "Align" examples.align/ui
-    "Backdrop" examples.backdrop/ui
-    "Calculator" examples.calculator/ui
-    "Canvas" examples.canvas/ui
-    "Canvas Shapes" examples.canvas-shapes/ui
-    "Checkbox" examples.checkbox/ui
-    "Container" examples.container/ui
-    "Effects" examples.effects/ui
-    "Errors" examples.errors/ui
-    "Event Bubbling" examples.event-bubbling/ui
-    "Image Snapshot" examples.image-snapshot/ui
-    "Label" examples.label/ui
-    "Paragraph" examples.paragraph/ui
-    "Scroll" examples.scroll/ui
-    "Settings" examples.settings/ui
-    "Stack" examples.stack/ui
-    "Text Field Debug" examples.text-field-debug/ui
-    "Todo MVC" examples.todomvc/ui
-    "Toggle" examples.toggle/ui
-    "Tooltip" examples.tooltip/ui
-    "Wordle" examples.wordle/ui))
+    ;"Align" examples.align/ui
+    ;"Backdrop" examples.backdrop/ui
+    ;"Calculator" examples.calculator/ui
+    ;"Canvas" examples.canvas/ui
+    ;"Canvas Shapes" examples.canvas-shapes/ui
+    ;"Checkbox" examples.checkbox/ui
+    ;"Container" examples.container/ui
+    ;"Effects" examples.effects/ui
+    ;"Errors" examples.errors/ui
+    ;"Event Bubbling" examples.event-bubbling/ui
+    ;"Image Snapshot" examples.image-snapshot/ui
+    ;"Label" examples.label/ui
+    ;"Paragraph" examples.paragraph/ui
+    ;"Scroll" examples.scroll/ui
+    ;"Settings" examples.settings/ui
+    ;"Stack" examples.stack/ui
+    ;"Text Field Debug" examples.text-field-debug/ui
+    ;"Todo MVC" examples.todomvc/ui
+    ;"Toggle" examples.toggle/ui
+    ;"Tooltip" examples.tooltip/ui
+    ;"Wordle" examples.wordle/ui
+    ))
 
 (def light-grey
   0xffeeeeee)   
@@ -85,7 +86,8 @@
     (ui/row
       (ui/vscrollbar
         (ui/column
-          (for [[name _] (sort-by first examples)]
+          ;(for [[name _] (sort-by first examples)]
+          (for [[name _] examples]
             (ui/clickable
               {:on-click (fn [_] (reset! state/*example name))}
               (ui/dynamic ctx [selected? (= name @state/*example)
@@ -109,7 +111,7 @@
     (let [screen (app/primary-screen)]
       (reset! state/*window 
         (ui/window
-          {:title    "Humble Test"
+          {:title    "Evapotranspiración"
            :mac-icon (if (io/resource "resources/images/icon.icns")
                        (slurp (io/resource "resources/images/icon.icns"))
                        "resources/images/icon.icns"

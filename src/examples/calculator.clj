@@ -11,6 +11,9 @@
   (atom {:b "0"
          :screen :b}))
 
+(defn get_state []
+  (@*state :b))
+
 (defn stringify [n]
   (let [s (str n)]
     (if (str/ends-with? s ".0")
