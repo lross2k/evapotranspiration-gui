@@ -3,6 +3,7 @@
         org.clojure/clojure         {:mvn/version "1.11.1"}
         nrepl/nrepl                 {:mvn/version "1.0.0"}
         org.clojure/tools.namespace {:mvn/version "1.4.4"}
+        clojure-csv/clojure-csv {:mvn/version "2.0.2"}
         }
  :aliases
  {;:dev {:extra-paths ["dev"]

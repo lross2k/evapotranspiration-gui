@@ -4,6 +4,7 @@
    [clojure.java.io :as io]
    [examples.ross]
    [examples.daily]
+   [examples.loadcsv]
    [examples.align]
    [examples.backdrop]
    [examples.calculator]
@@ -45,8 +46,9 @@
 
 (def examples
   (sorted-map
-    "ARoss" examples.ross/ui
     "Diario" examples.daily/ui
+    "Cargar Datos" examples.loadcsv/ui
+    "GridTest" examples.ross/ui
     ;"Align" examples.align/ui
     ;"Backdrop" examples.backdrop/ui
     ;"Calculator" examples.calculator/ui
