@@ -22,7 +22,6 @@
 
 (def *valCalc
   (atom {:text (calculetor/get_state)}))
-(println *valCalc)
 (def calcTest {:name "Prueba", :value *valCalc, :unit "csm"})
 
 (def *valHeight
